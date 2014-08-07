@@ -1,9 +1,11 @@
 - model_class = Product
 .page-header
+  %p#error= flash[:error]
   %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
 %table.table.table-striped
   %thead
     %tr
+      %th= model_class.human_attribute_name(:id)
       %th= model_class.human_attribute_name(:title)
       %th= model_class.human_attribute_name(:description)
       %th= model_class.human_attribute_name(:price)
@@ -12,6 +14,7 @@
   %tbody
     - products.each do |product|
       %tr
+        %td= product.id
         %td= product.title
         %td= product.description
         %td= product.price

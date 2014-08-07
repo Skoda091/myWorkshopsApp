@@ -1,6 +1,9 @@
 - model_class = Product
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.titleize
+  
+%p#notice= notice
+%p#error= flash[:error]
 
 %p
   %strong= model_class.human_attribute_name(:title) + ':'
