@@ -1,8 +1,10 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :create]
+  before_action :authenticate_admin, only: [:new, :edit, :update, :destroy, :create]
   
   expose(:categories)
   expose(:category)
+  expose(:name)
   expose(:product) { Product.new }
 
   def index
@@ -38,6 +40,13 @@ class CategoriesController < ApplicationController
   def destroy
     category.destroy
     redirect_to categories_url, notice: 'Category was successfully destroyed.'
+  end
+
+  def authenticate_admin
+    if !current_user.admin?
+      flash[:error] = 'Permission denied!'
+      redirect_to new_user_session_path
+    end
   end
 
   private

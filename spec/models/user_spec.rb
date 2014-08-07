@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'user'
 
 describe User do
   it { should validate_presence_of :firstname }

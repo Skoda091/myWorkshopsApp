@@ -15,6 +15,8 @@ gem 'haml-rails'
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
+gem 'autoprefixer-rails'
+
 
 gem 'therubyracer', platforms: :ruby
 
