@@ -17,6 +17,8 @@ gem 'coffee-rails'
 gem 'uglifier'
 gem 'autoprefixer-rails'
 
+gem 'twitter-bootstrap-rails'
+gem 'less-rails'
 
 gem 'therubyracer', platforms: :ruby
 
