@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 
 
   def admin?
-  	return @admin
+    admin
   end
 
   def owner? product
