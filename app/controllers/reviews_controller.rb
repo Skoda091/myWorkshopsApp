@@ -13,8 +13,8 @@ class ReviewsController < ApplicationController
     if review.save
       product.reviews << review
       current_user.reviews << review
-
-      redirect_to category_product_url(product.category, product), notice: 'Review was successfully created.'
+      flash[:success] = 'Review was successfully created.'
+      redirect_to category_product_url(product.category, product)
     else
       render action: 'new'
     end
@@ -22,7 +22,8 @@ class ReviewsController < ApplicationController
 
   def destroy
     review.destroy
-    redirect_to category_product_url(product.category, product), notice: 'Review was successfully destroyed.'
+    flash[:success] = 'Review was successfully destroyed.'
+    redirect_to category_product_url(product.category, product)
   end
 
   private

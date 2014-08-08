@@ -21,6 +21,9 @@
           %li= link_to "Sign up", new_user_registration_path
   %body
     .container
+      - flash.each do |name, msg|
+        %div{:class => "alert alert-#{name}"}
+          = msg
       .row
         .span9
           = yield

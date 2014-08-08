@@ -27,7 +27,8 @@ class ProductsController < ApplicationController
     if product.save
       category.products << product
       current_user.products << product
-      redirect_to category_product_url(category, Product.last), notice: 'Product was successfully created.'
+      flash[:success] = 'Product was successfully created.'
+      redirect_to category_product_url(category, Product.last)
     else
       render action: 'new'
     end
@@ -35,7 +36,8 @@ class ProductsController < ApplicationController
 
   def update
     if self.product.update(product_params)
-      redirect_to category_product_url(category, product), notice: 'Product was successfully updated.'
+      flash[:success] = 'Product was successfully updated.'
+      redirect_to category_product_url(category, product)
     else
       render action: 'edit'
     end
@@ -44,7 +46,8 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   def destroy
     product.destroy
-    redirect_to category_url(category), notice: 'Product was successfully destroyed.'
+    flash[:success] = 'Product was successfully destroyed.'
+    redirect_to category_url(category)
   end
 
   def owner_of_the_product
