@@ -5,6 +5,6 @@ Rails.application.routes.draw do
       resources :reviews
     end
   end
-
+  resources :products
   root 'categories#index'
 end
